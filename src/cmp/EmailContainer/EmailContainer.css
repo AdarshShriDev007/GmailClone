@@ -1,0 +1,128 @@
+.emailContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.emailSettings{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid whitesmoke;
+    padding: 7px 0px;
+}
+
+.emailSettings svg{
+    font-size: 18px;
+}
+
+.emailSettings-left{
+    margin-left: 10px;
+}
+
+.emailSettings-right span{
+    font-size: 13px;
+}
+
+.emailType{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.emailType > .emailTypeOptions{
+    display: flex;
+    align-items: center;
+    min-width: 230px;
+    border-bottom: 3px solid #fff;
+    padding: 10px 17px;
+
+}
+
+.emailType > .emailTypeOptions:hover{
+    background-color: whitesmoke;
+    border-bottom: 3px solid whitesmoke;
+    cursor: pointer;
+}
+
+.emailType > .emailTypeOptions svg{
+    font-size: 20px;
+    margin-right: 8px;
+    color: gray;
+}
+
+.emailType > .emailTypeOptions span{
+    font-size: 15px;
+}
+
+.emailTypeOptions-active{
+    border-bottom: 3px solid #d93025 !important;
+}
+
+.emailTypeOptions-active svg{
+    color: #d93025 !important;
+}
+
+.emailTypeOptions-active span{
+    color: #d93025;
+    font-weight: bold;
+}
+
+.emailList{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid whitesmoke;
+    padding: 0px 17px;
+    height: 40px;
+}
+
+.emailList:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 4px whitesmoke;
+}
+
+.emailList span{
+    font-size: 14px;
+}
+
+.emailList-left{
+    display: flex;
+    align-items: center;
+    min-width: 300px;
+    flex: 20%;
+}
+
+.emailList-left svg{
+    font-size: 18px;
+    color: gray;
+    margin-right: 10px;
+}
+
+.emailList-middle{
+    display: flex;
+    align-items: center;
+    flex: 70%;
+
+}
+
+.emailList-middle-msg{
+    display: flex;
+    width: 90%;
+}
+
+.emailList-middle span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 600px;
+}
+
+.emailList-right{
+    display: flex;
+    align-items: center;
+    flex: 10%;
+    justify-content: flex-end;
+}
+
+.emailList-right span{
+    font-size: 13px !important;
+}
