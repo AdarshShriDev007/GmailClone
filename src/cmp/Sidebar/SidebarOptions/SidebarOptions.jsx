@@ -3,22 +3,18 @@ import {
     IconButton
 } from "@mui/material";
 
-function SidebarOptions({icon,label,number}) {
+function SidebarOptions({icon,label,number,active}) {
   return (
-    <div className='sidebarOptions'>
-        <div className='sidebarOptions-left'>
+    <div className={`sidebarOptions ${active && 'sidebarOptions-active'}`}>
+        
             <IconButton>
                 {icon}
             </IconButton>
-        </div>
-
-        <div className='sidebarOptions-middle'>
-            <span>{label}</span>
-        </div>
-
-        <div className='sidebarOptions-right'>
+        
+            <h4>{label}</h4>
+        
             <span>{number}</span>
-        </div>
+        
     </div>
   )
 }

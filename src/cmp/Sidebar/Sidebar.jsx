@@ -12,7 +12,9 @@ import {
   Label,
   Delete,
   FindInPage,
-  ExpandMore
+  ExpandMore,
+  Videocam,
+  Keyboard
 } from "@mui/icons-material";
 
 function Sidebar() {
@@ -20,7 +22,7 @@ function Sidebar() {
     <div className='sidebar'>
         <ComposeBtn />
         
-        <SidebarOptions icon={<Inbox />} label={"Inbox"} number={224} />
+        <SidebarOptions icon={<Inbox />} label={"Inbox"} number={224} active={true} />
         <SidebarOptions icon={<StarRate />} label={"Starred"} number={224} />
         <SidebarOptions icon={<WatchLater />} label={"Snoozed"} number={224} />
         <SidebarOptions icon={<LabelImportant />} label={"Important"} number={224} />
@@ -30,6 +32,10 @@ function Sidebar() {
         <SidebarOptions icon={<Delete />} label={"[Map]/Trash"} number={224} />
         <SidebarOptions icon={<FindInPage />} label={"Documents"} number={224} />
         <SidebarOptions icon={<ExpandMore />} label={"More"} number={224} />
+          <hr />
+        <span className='sidebar-heading'>Meet</span>
+        <SidebarOptions icon={<Videocam />} label={"New meeting"} />
+        <SidebarOptions icon={<Keyboard />} label={"Join a meeting"} />
         
     </div>
   )
