@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import Header from './cmp/Header';
+import Header from './cmp/Header/Header';
 import Sidebar from './cmp/Sidebar/Sidebar';
-
 
 function App() {
   return (
