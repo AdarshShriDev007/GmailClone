@@ -16,8 +16,13 @@ import {
   MoreVert,
   Delete
  } from "@mui/icons-material";
+ import { useDispatch } from "react-redux";
+ import { isMailClose } from "../../features/mailSlice";
 
 function ComposeModal() {
+
+    const dispatch = useDispatch();
+
   return (
     <div className='compose'>
         <div className='compose-header'>
@@ -27,7 +32,7 @@ function ComposeModal() {
           <div className='compose-header-right'>
               <Remove />
               <Height />
-              <Close />
+              <Close onClick={()=>dispatch(isMailClose())} />
           </div>
         </div>
 

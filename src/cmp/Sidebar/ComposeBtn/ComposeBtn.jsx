@@ -6,11 +6,16 @@ import {
 import {
     Create
 } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { isMailOpen } from "../../../features/mailSlice";
 
 function ComposeBtn() {
+
+  const dispatch = useDispatch();
+
   return (
     <div className='composeBtn'>
-        <Button startIcon={<Create />} className='compose-btn'>Compose</Button>
+        <Button startIcon={<Create />} className='compose-btn' onClick={()=>dispatch(isMailOpen())}>Compose</Button>
     </div>
   )
 }

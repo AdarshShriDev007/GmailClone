@@ -4,8 +4,13 @@ import Header from './cmp/Header/Header';
 import Sidebar from './cmp/Sidebar/Sidebar';
 import EmailContainer from './cmp/EmailContainer/EmailContainer';
 import ComposeModal from './cmp/ComposeModal/ComposeModal';
+import { useSelector } from "react-redux";
+import { selectedMail } from "./features/mailSlice";
 
 function App() {
+  const mail = useSelector(selectedMail);
+  const isopen = mail;
+  
   return (
     <div className="App">
       <Header />
@@ -14,7 +19,10 @@ function App() {
         <Sidebar />
         <EmailContainer />
       </div>
-      <ComposeModal />
+      {
+        isopen ? <ComposeModal /> : null 
+      }
+      
     </div>
   );
 }
