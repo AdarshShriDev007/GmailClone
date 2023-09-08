@@ -17,13 +17,20 @@ import {
   Star,
   Reply
 } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { selectedmailDetail } from "../..//features/mailSlice";
+import { useNavigate } from "react-router-dom";
 
 function EmailDetails() {
+
+  const mailData = useSelector(selectedmailDetail);
+  const navigate = useNavigate();
+
   return (
     <div className='emailDetails'>
       <div className='emailSettings'>
         <div className='emailSettings-left'>
-            <IconButton><ArrowBack /></IconButton>
+            <IconButton onClick={()=>navigate("/")}><ArrowBack /></IconButton>
             <IconButton><ArrowDropDown /></IconButton>
             <IconButton><Refresh /></IconButton>
             <IconButton><MoreVert /></IconButton>
@@ -39,7 +46,7 @@ function EmailDetails() {
       <div className='emailDetail-box'>
           <div className='emailDetail-header'>
               <div className='emailDetail-header-left'>
-                <span><b>This is Subject</b></span>
+                <span><b>{mailData.subject}</b></span>
                 <IconButton>
                   <LabelImportant />
                 </IconButton>
@@ -57,11 +64,11 @@ function EmailDetails() {
           <div className='emailDetail-middle-header'>
             <div className='emailDetail-middle-header-left'>
                 <IconButton><Avatar /></IconButton> 
-                <span><b>Adarsh Kumar</b></span>
-                <p>adarshkumar@gmail.com</p>
+                <span><b>{mailData.subject}</b></span>
+                <p>{mailData.name}</p>
             </div>
             <div className='emailDetail-middle-header-right'>
-              <span>04:53 AM</span>
+              <span>{mailData.time}</span>
               <IconButton><Star /></IconButton>
               <IconButton><Reply /></IconButton>
               <IconButton><MoreVert /></IconButton>
@@ -69,7 +76,7 @@ function EmailDetails() {
           </div>
 
           <div className='emailDetail-body'>
-            <span>This is message</span>
+            <span>{mailData.message}</span>
           </div>
       </div>
 
