@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./EmailDetails.css";
 import {
   IconButton,
@@ -20,11 +20,25 @@ import {
 import { useSelector } from "react-redux";
 import { selectedmailDetail } from "../..//features/mailSlice";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 function EmailDetails() {
 
   const mailData = useSelector(selectedmailDetail);
   const navigate = useNavigate();
+  const cookie = new Cookies();
+ 
+  if(mailData !== null)
+  {
+    const textmail = JSON.stringify(mailData);
+    const encryptData = btoa(textmail);
+    cookie.set("mail",encryptData);
+  }
+
+    const mailEnc = cookie.get("mail");
+    const decryptData = atob(mailEnc);
+    const mail = JSON.parse(decryptData);
+  
 
   return (
     <div className='emailDetails'>
@@ -46,7 +60,7 @@ function EmailDetails() {
       <div className='emailDetail-box'>
           <div className='emailDetail-header'>
               <div className='emailDetail-header-left'>
-                <span><b>{mailData.subject}</b></span>
+                <span><b>{mail.subject}</b></span>
                 <IconButton>
                   <LabelImportant />
                 </IconButton>
@@ -64,11 +78,11 @@ function EmailDetails() {
           <div className='emailDetail-middle-header'>
             <div className='emailDetail-middle-header-left'>
                 <IconButton><Avatar /></IconButton> 
-                <span><b>{mailData.subject}</b></span>
-                <p>{mailData.name}</p>
+                <span><b>{mail.name}</b></span>
+                <p>{mail.from}</p>
             </div>
             <div className='emailDetail-middle-header-right'>
-              <span>{mailData.time}</span>
+              <span>{mail.time}</span>
               <IconButton><Star /></IconButton>
               <IconButton><Reply /></IconButton>
               <IconButton><MoreVert /></IconButton>
@@ -76,7 +90,7 @@ function EmailDetails() {
           </div>
 
           <div className='emailDetail-body'>
-            <span>{mailData.message}</span>
+            <span>{mail.message}</span>
           </div>
       </div>
 

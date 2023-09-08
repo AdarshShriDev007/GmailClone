@@ -4,14 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { isMailDetail } from "../../../features/mailSlice";
 
-function EmailList({name,subject,message,time}) {
+function EmailList({to,name,from,subject,message,time}) {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const mailDetails = ()=>{
         dispatch(isMailDetail({
+            to,
             name,
+            from,
             subject,
             message,
             time   

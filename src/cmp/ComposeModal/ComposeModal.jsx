@@ -16,14 +16,17 @@ import {
   MoreVert,
   Delete
  } from "@mui/icons-material";
- import { useDispatch } from "react-redux";
+ import { useDispatch, useSelector } from "react-redux";
  import { isMailClose } from "../../features/mailSlice";
+ import {  selectedUser } from "../../features/userSlice";
  import { collection, addDoc } from "firebase/firestore";
  import { db } from "../../firebase";
+
 
 function ComposeModal() {
 
     const dispatch = useDispatch();
+    const user = useSelector(selectedUser);
 
     const [to,setTo] = useState("");
     const [subject,setSubject] = useState("");
@@ -34,6 +37,8 @@ function ComposeModal() {
         try{
             const result = await addDoc(collection(db, "emails"),{
                 to,
+                name : user.displayName,
+                fromEmail : user.fromEmail,
                 subject,
                 message,
                 timestamp : new Date()

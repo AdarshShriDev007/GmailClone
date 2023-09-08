@@ -12,8 +12,15 @@ import {
     Settings,
     Apps
 } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { selectedUser } from "../../features/userSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 function Header() {
+
+    const user = useSelector(selectedUser);
+
   return (
     <div className='header'>
         <div className='header-left'>
@@ -41,8 +48,8 @@ function Header() {
             <IconButton>
                 <Apps />
             </IconButton>
-            <IconButton>
-                <Avatar />
+            <IconButton onClick={()=>signOut(auth)}>
+                <Avatar src={user?.photoURL} />
             </IconButton>
         </div>
 
